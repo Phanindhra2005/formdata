@@ -1,0 +1,12 @@
+/* Add customer css */
+.center_div{
+    margin: 30px auto;
+    width:55% /* value of your choice which suits your alignment */
+}
+label {
+    margin: 5px;
+}
+input[type='checkbox'] { 
+    margin-right: 9px;
+    margin-left: 12px;
+ }
