@@ -31,7 +31,7 @@ const User = require("../models/user");
 
 router.get("/", (req, res, next) => {
   User.find()
-    .select("firstname lastname gender dob education bio knownLanguages _id")
+    .select("firstname lastname gender education bio knownLanguages _id")
     .exec()
     .then((docs) => {
       const response = {
@@ -41,7 +41,6 @@ router.get("/", (req, res, next) => {
             firstname: doc.firstname,
             lastname: doc.lastname,
             gender: doc.gender,
-            dob: doc.dob,
             education: doc.education,
             knownLanguages: doc.knownLanguages,
             bio: doc.bio,
@@ -68,7 +67,7 @@ router.get("/:userId", (req, res, next) => {
   // res.header("Content-Type", "application/json")
   const id = req.params.userId;
   User.findById(id)
-    .select("firstname lastname gender dob knownLanguages education bio _id")
+    .select("firstname lastname gender knownLanguages education bio _id")
     .exec()
     .then((doc) => {
       console.log("From database", doc);
@@ -78,7 +77,6 @@ router.get("/:userId", (req, res, next) => {
             firstname: doc.firstname,
             lastname: doc.lastname,
             gender: doc.gender,
-            dob: doc.dob,
             education: doc.education,
             knownLanguages: doc.knownLanguages,
             bio: doc.bio,
@@ -107,7 +105,6 @@ router.post("/", upload.single("profilePicture"), (req, res, next) => {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     gender: req.body.gender,
-    dob: req.body.dob,
     education: req.body.education,
     knownLanguages: req.body.knownLanguages,
     bio: req.body.bio,
@@ -122,7 +119,6 @@ router.post("/", upload.single("profilePicture"), (req, res, next) => {
           firstname: result.firstname,
           lastname: result.lastname,
           gender: result.gender,
-          dob: result.dob,
           education: result.education,
           knownLanguages: result.knownLanguages,
           bio: result.bio,
@@ -154,7 +150,6 @@ router.put("/:userId", (req, res, next) => {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     gender: req.body.gender,
-    dob: req.body.dob,
     education: req.body.education,
     knownLanguages: req.body.knownLanguages,
     bio: req.body.bio,

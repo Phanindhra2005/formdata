@@ -37,7 +37,6 @@ export default function Dashboard() {
     reset,
   } = useForm();
 
-  const [dob] = useState("");
   const [user, setUser] = useState(null);
   useEffect(() => {
     loadUser();
@@ -57,7 +56,6 @@ export default function Dashboard() {
       userFormData.append("firstname", data.firstname);
       userFormData.append("lastname", data.lastname);
       userFormData.append("gender", gender);
-      userFormData.append("dob", dob);
       userFormData.append("education", data.education);
       userFormData.append("knownLanguages", data.knownLanguages);
       userFormData.append("bio", data.bio);
@@ -81,7 +79,6 @@ export default function Dashboard() {
       bodyFormData.append("firstname", data.firstname);
       bodyFormData.append("lastname", data.lastname);
       bodyFormData.append("gender", data.gender);
-      bodyFormData.append("dob", data.dob);
       bodyFormData.append("education", data.education);
       bodyFormData.append("knownLanguages", data.knownLanguages);
       bodyFormData.append("bio", data.bio);
@@ -94,7 +91,6 @@ export default function Dashboard() {
       if (result.data.message) alert(result.data.message);
       history.push("/");
       reset();
-      console.log(result);
     }
   };
 
@@ -246,18 +242,6 @@ export default function Dashboard() {
                     Female
                   </label>
                 </div>
-                <div className="col">
-                  <label>Date Of Birth</label>
-                  {user && user.dob && (
-                    <Datetime
-                      closeOnSelect={true}
-                      ref={datetime}
-                      timeFormat={false}
-                      initialValue={id ? new Date(user.dob) : ""}
-                    />
-                  )}
-                  {!id && <Datetime closeOnSelect={true} ref={datetime} />}
-                </div>
               </div>
               <div className="col mb-2">
                 <label>Tell me about yourself more</label>
@@ -307,13 +291,13 @@ export default function Dashboard() {
             <box-icon name="link-alt"></box-icon>
           </button>
           <hr />
-          {viewlink && "http://localhost:3000"}
+          {viewlink && "https://phanindhra2005.github.io/formdata/"}
         </Modal.Body>
         <Modal.Footer>
         {viewlink && <button
             type="button"
             className="btn btn-primary me-md-2"
-            onClick={() => {navigator.clipboard.writeText("http://localhost:3000")}}
+            onClick={() => {navigator.clipboard.writeText("https://phanindhra2005.github.io/formdata/")}}
           >
             Copy Link
           </button>

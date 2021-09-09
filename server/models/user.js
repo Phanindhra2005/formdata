@@ -18,9 +18,6 @@ const userSchema = new mongoose.Schema({
           required: true,   
           default: false
       },
-      dob: {
-            type: String,
-      },
       education: {
           type: String,
           // required: true
