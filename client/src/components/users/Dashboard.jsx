@@ -282,7 +282,7 @@ export default function Dashboard() {
         </Modal.Header>
         <Modal.Body>
           Send via Link:
-          <a href="mailto:?subject=Information Form,body=Information Form Link: https://phanindhra2005.github.io/formdata/">
+          <a href="mailto:?subject=Information Form,body=For Information Form Click on This Link: https://phanindhra2005.github.io/formdata/">
             <button className="btn btn mr-3" onClick={() => setVielink(false)}>
               <box-icon name="mail-send"></box-icon>
             </button>
